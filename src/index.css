@@ -83,3 +83,36 @@ header .navbar-nav {
   background-color: var(--accent-gold);
   color: var(--bs-body-color);
 }
+
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--accent-gold);
+}
+
+.product-card-image {
+  height: 260px;
+  object-fit: cover;
+}
+
+.product-card-details-overlay {
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.product-card:hover .product-card-details-overlay {
+  opacity: 1;
+}
+
+.product-card-rating {
+  color: var(--accent-gold);
+}
+
+.discount-badge {
+  background-color: var(--accent-gold);
+  color: var(--bs-body-color);
+}
