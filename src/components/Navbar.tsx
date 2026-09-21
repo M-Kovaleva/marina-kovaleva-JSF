@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Offcanvas } from 'bootstrap'
 import logo from '../assets/logo-gold.png'
 import logoBlack from '../assets/logo-black.png'
+import { useCart } from '../context/CartContext'
 
 function closeMobileMenu() {
   const el = document.getElementById('mobileMenu')
@@ -14,6 +15,9 @@ function closeMobileMenu() {
 }
 
 function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
+  const { items } = useCart()
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
+
   return (
     <>
       <li className="nav-item">
@@ -23,8 +27,11 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
         <Link to="/contact" className="nav-link" onClick={onLinkClick}>Contact us</Link>
       </li>
       <li className="nav-item">
-        <Link to="/cart" className="nav-link" onClick={onLinkClick}>
+        <Link to="/cart" className="nav-link position-relative" onClick={onLinkClick}>
           <i className="bi bi-cart nav-icon"></i>
+          {itemCount > 0 && (
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge">{itemCount}</span>
+          )}
         </Link>
       </li>
     </>

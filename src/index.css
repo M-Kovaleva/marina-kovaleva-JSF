@@ -78,3 +78,8 @@ header .navbar-nav {
   line-height: 1;
   color: var(--bs-body-color);
 }
+
+.cart-badge {
+  background-color: var(--accent-gold);
+  color: var(--bs-body-color);
+}
