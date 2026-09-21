@@ -5,6 +5,7 @@ import ProductPage from './pages/ProductPage'
 import CartPage from './pages/CartPage'
 import SuccessPage from './pages/SuccessPage'
 import ContactPage from './pages/ContactPage'
+import CartToast from './components/CartToast'
 // Navbar 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <CartToast />
     </>
   )
 }

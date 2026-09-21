@@ -61,6 +61,11 @@ header .navbar-nav {
   --bs-navbar-active-color: var(--accent-gold);
 }
 
+.toast {
+  background-color: var(--bs-body-color);
+  color: var(--bs-body-bg);
+}
+
 .navbar-brand img {
   height: 50px;
   width: auto;

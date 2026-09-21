@@ -5,10 +5,12 @@ import type { CartItem } from '../types/cart'
 
 interface CartContextType {
   items: CartItem[]
+  toastMessage: string | null
   addToCart: (product: Product) => void
   removeFromCart: (productId: string) => void
   updateQuantity: (productId: string, quantity: number) => void
   clearCart: () => void
+  clearToast: () => void
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -20,6 +22,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem(STORAGE_KEY)
     return saved ? JSON.parse(saved) : []
   })
+  const [toastMessage, setToastMessage] = useState<string | null>(null)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
@@ -37,10 +40,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { product, quantity: 1 }]
     })
+    setToastMessage(`${product.title} added to cart`)
   }
 
   function removeFromCart(productId: string) {
+    const removed = items.find((item) => item.product.id === productId)
     setItems((prev) => prev.filter((item) => item.product.id !== productId))
+    if (removed) {
+      setToastMessage(`${removed.product.title} removed from cart`)
+    }
   }
 
   function updateQuantity(productId: string, quantity: number) {
@@ -55,8 +63,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems([])
   }
 
+  function clearToast() {
+    setToastMessage(null)
+  }
+
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateQuantity, clearCart }}>
+    <CartContext.Provider
+      value={{ items, toastMessage, addToCart, removeFromCart, updateQuantity, clearCart, clearToast }}
+    >
       {children}
     </CartContext.Provider>
   )
