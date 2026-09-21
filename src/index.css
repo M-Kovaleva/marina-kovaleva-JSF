@@ -1,3 +1,4 @@
+@import url("bootstrap-icons/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap");
 @import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -38,4 +39,42 @@ h1, h2, h3, h4 {
   --bs-btn-active-color: var(--bs-body-color);
   --bs-btn-active-bg: #e0d3ba;
   --bs-btn-active-border-color: var(--accent-gold);
+}
+
+header {
+  --bs-nav-link-font-size: 18px;
+}
+
+header .navbar-nav {
+  --bs-nav-link-font-weight: 700;
+}
+
+.navbar {
+  --bs-navbar-color: var(--bs-body-bg);
+  --bs-navbar-hover-color: var(--accent-gold);
+  --bs-navbar-active-color: var(--accent-gold);
+}
+
+#mobileMenu {
+  --bs-navbar-color: var(--bs-body-color);
+  --bs-navbar-hover-color: var(--accent-gold);
+  --bs-navbar-active-color: var(--accent-gold);
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-icon {
+  font-size: 1.25rem;
+  -webkit-text-stroke: 0.8px currentColor;
+}
+
+.btn-close-custom {
+  background: none;
+  border: 0;
+  padding: 0;
+  line-height: 1;
+  color: var(--bs-body-color);
 }
