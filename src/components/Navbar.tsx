@@ -27,11 +27,15 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
         <Link to="/contact" className="nav-link" onClick={onLinkClick}>Contact us</Link>
       </li>
       <li className="nav-item">
-        <Link to="/cart" className="nav-link position-relative" onClick={onLinkClick}>
-          <i className="bi bi-cart nav-icon"></i>
-          {itemCount > 0 && (
-            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge">{itemCount}</span>
-          )}
+        <Link to="/cart" className="nav-link" onClick={onLinkClick}>
+          <span className="position-relative d-inline-block">
+            <i className="bi bi-cart nav-icon"></i>
+            {itemCount > 0 && (
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge">
+                {itemCount}
+              </span>
+            )}
+          </span>
         </Link>
       </li>
     </>
