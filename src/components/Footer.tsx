@@ -5,11 +5,13 @@ function Footer() {
 
   return (
     <footer className="bg-dark text-white py-4">
-      <div className="container d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <span>Modo &copy; {year}</span>
+      <div className="container d-flex flex-column flex-md-row align-items-center justify-content-md-between gap-4 gap-md-3 text-center text-md-start">
+        <span className="order-3 order-md-1">
+          Modo &copy; {year}
+        </span>
 
-        <nav>
-          <ul className="nav gap-3">
+        <nav className="order-1 order-md-2">
+          <ul className="nav flex-column flex-md-row gap-2 gap-md-3">
             <li className="nav-item">
               <Link to="/" className="nav-link text-white p-0">
                 Home
@@ -23,8 +25,7 @@ function Footer() {
           </ul>
         </nav>
 
-        <div className="d-flex gap-3">
-          {/* TODO: change to links*/}
+        <div className="d-flex gap-3 order-2 order-md-3">
           <a href="https://www.facebook.com/" className="text-white" aria-label="Facebook">
             <i className="bi bi-facebook fs-5"></i>
           </a>
