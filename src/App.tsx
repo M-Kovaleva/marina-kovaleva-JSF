@@ -6,21 +6,24 @@ import CartPage from './pages/CartPage'
 import SuccessPage from './pages/SuccessPage'
 import ContactPage from './pages/ContactPage'
 import CartToast from './components/CartToast'
-// Navbar 
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/success" element={<SuccessPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <main className="flex-grow-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </main>
+      <Footer />
       <CartToast />
-    </>
+    </div>
   )
 }
 export default App
