@@ -62,10 +62,10 @@ header .navbar-nav {
 }
 
 .toast {
-  background-color: var(--bs-body-color);
-  color: var(--bs-body-bg);
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  box-shadow: 0 8px 20px var(--accent-gold);
 }
-
 .navbar-brand img {
   height: 50px;
   width: auto;

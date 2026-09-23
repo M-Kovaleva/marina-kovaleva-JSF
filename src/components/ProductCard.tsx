@@ -13,7 +13,7 @@ function ProductCard({ product }: ProductCardProps) {
     : 0
 
   return (
-    <Link to={`/product/${product.id}`} className="text-decoration-none">
+    <Link to={`/product/${product.id}`} className="text-decoration-none text-body">
       <div className="product-card h-100 bg-body rounded-4 p-3">
         <div className="position-relative">
           <img
@@ -31,7 +31,7 @@ function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
         <div className="text-center pt-3">
-          <h3 className="h5 mb-2">{product.title}</h3>
+          <h3 className="h5 mb-2 fw-semibold">{product.title}</h3>
           <StarRating rating={product.rating} className="mb-2" />
           <div className="d-flex gap-2 justify-content-center fw-bold">
             {hasDiscount && (

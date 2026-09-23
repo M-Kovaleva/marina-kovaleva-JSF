@@ -8,16 +8,22 @@ function CartToast() {
 
   useEffect(() => {
     if (toastMessage && toastRef.current) {
-      const toast = Toast.getOrCreateInstance(toastRef.current)
+      const toast = Toast.getOrCreateInstance(toastRef.current, {
+        autohide: true,
+        delay: 2000,
+      })
       toast.show()
     }
   }, [toastMessage])
 
   return (
-    <div className="toast-container position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1080 }}>
+    <div
+        className="toast-container position-fixed end-0 p-3"
+        style={{ zIndex: 1080, top: '40px' }}
+    >
       <div
         ref={toastRef}
-        className="toast align-items-center border-0"
+        className="toast align-items-center border-0 "
         role="status"
         aria-live="polite"
         aria-atomic="true"
@@ -29,12 +35,6 @@ function CartToast() {
       >
         <div className="d-flex">
           <div className="toast-body">{toastMessage}</div>
-          <button
-            type="button"
-            className="btn-close btn-close-white me-2 m-auto"
-            data-bs-dismiss="toast"
-            aria-label="Close"
-          ></button>
         </div>
       </div>
     </div>
