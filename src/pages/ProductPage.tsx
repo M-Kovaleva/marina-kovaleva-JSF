@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
 import { useCart } from '../context/CartContext'
+import StarRating from '../components/StarRating'
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -61,10 +62,7 @@ function ProductPage() {
             </div>
           )}
 
-          <div className="mb-3 product-card-rating">
-            {'★'.repeat(product.rating)}
-            {'☆'.repeat(5 - product.rating)}
-          </div>
+          <StarRating rating={product.rating} showCount className="mb-3" />
 
           <div className="d-flex gap-2 align-items-center fs-3 fw-bold mb-4">
             {hasDiscount && (
@@ -93,10 +91,7 @@ function ProductPage() {
           {product.reviews.map((review) => (
             <div key={review.id} className="mb-4">
               <p className="mb-2">{review.username}</p>
-              <div className="product-card-rating mb-2">
-                {'★'.repeat(review.rating)}
-                {'☆'.repeat(5 - review.rating)}
-              </div>
+              <StarRating rating={review.rating} className="mb-2" />
               <p className="mb-0">{review.description}</p>
             </div>
           ))}

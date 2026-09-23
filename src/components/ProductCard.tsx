@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Product } from '../types/product'
+import StarRating from './StarRating'
 
 interface ProductCardProps {
   product: Product
@@ -31,10 +32,7 @@ function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="text-center pt-3">
           <h3 className="h5 mb-2">{product.title}</h3>
-          <div className="product-card-rating mb-2">
-            {'★'.repeat(product.rating)}
-            {'☆'.repeat(5 - product.rating)}
-          </div>
+          <StarRating rating={product.rating} className="mb-2" />
           <div className="d-flex gap-2 justify-content-center fw-bold">
             {hasDiscount && (
               <span className="text-decoration-line-through text-body-secondary">
