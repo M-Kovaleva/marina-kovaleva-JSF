@@ -54,12 +54,10 @@ function ProductPage() {
           <h1 className="h2 mb-3">{product.title}</h1>
 
           {product.tags.length > 0 && (
-            <div className="mb-3 d-flex gap-2 flex-wrap">
-              {product.tags.map((tag) => (
-                <span key={tag} className="badge rounded-pill text-bg-secondary">
-                  {tag}
-                </span>
-              ))}
+            <div className="mb-3">
+              <span className="product-tags d-inline-block rounded-2 px-2 py-1">
+                {product.tags.join(',')}
+              </span>
             </div>
           )}
 
@@ -91,11 +89,11 @@ function ProductPage() {
 
       {product.reviews.length > 0 && (
         <div className="mt-5">
-          <h2 className="h4 mb-3">Reviews</h2>
+          <h2 className="h3 mb-4">Customer Reviews</h2>
           {product.reviews.map((review) => (
-            <div key={review.id} className="mb-3 pb-3 border-bottom">
-              <div className="fw-bold">{review.username}</div>
-              <div className="product-card-rating">
+            <div key={review.id} className="mb-4">
+              <p className="mb-2">{review.username}</p>
+              <div className="product-card-rating mb-2">
                 {'★'.repeat(review.rating)}
                 {'☆'.repeat(5 - review.rating)}
               </div>

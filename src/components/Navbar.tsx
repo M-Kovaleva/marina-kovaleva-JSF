@@ -46,20 +46,20 @@ function Navbar() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'var(--bs-body-color)' }}>
-        <div className="container-fluid px-4 py-3">
+        <div className="container-fluid px-4 py-0">
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="MODO" />
           </Link>
 
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border-0 p-0 shadow-none"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#mobileMenu"
             aria-controls="mobileMenu"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <i className="bi bi-list nav-icon"></i>
           </button>
 
           <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-4 d-none d-lg-flex">
