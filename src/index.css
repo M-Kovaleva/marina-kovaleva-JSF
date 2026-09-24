@@ -21,12 +21,12 @@ h1, h2, h3, h4 {
   --bs-btn-color: var(--bs-body-bg);
   --bs-btn-bg: #a1332a;
   --bs-btn-border-color: #a1332a;
-  --bs-btn-hover-color: var(--bs-body-bg);
-  --bs-btn-hover-bg: #8a2b23;
-  --bs-btn-hover-border-color: #8a2b23;
-  --bs-btn-active-color: var(--bs-body-bg);
-  --bs-btn-active-bg: #7a2620;
-  --bs-btn-active-border-color: #7a2620;
+  --bs-btn-hover-color: var(--accent-gold);
+  --bs-btn-hover-bg: #a1332a;
+  --bs-btn-hover-border-color: #a1332a;
+  --bs-btn-active-color: var(--accent-gold);
+  --bs-btn-active-bg: #a1332a;
+  --bs-btn-active-border-color: #a1332a;
 }
 
 .btn-secondary {

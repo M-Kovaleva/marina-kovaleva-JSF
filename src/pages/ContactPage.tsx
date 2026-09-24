@@ -174,7 +174,7 @@ function ContactPage() {
           )}
         </div>
 
-        <button type="submit" className="btn w-100 d-block fw-bold">
+        <button type="submit" className="btn btn-primary btn-lg w-100">
           Send Message
         </button>
       </form>

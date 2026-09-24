@@ -80,7 +80,7 @@ function ProductPage() {
             className="btn btn-primary btn-lg"
             onClick={() => addToCart(product)}
           >
-            Add to Cart
+            Add to cart
           </button>
         </div>
       </div>
