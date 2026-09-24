@@ -50,7 +50,6 @@ function ProductPage() {
             style={{ maxHeight: 480 }}
           />
         </div>
-
         <div className="col-12 col-md-6">
           <h1 className="h2 mb-3">{product.title}</h1>
 
@@ -62,7 +61,7 @@ function ProductPage() {
             </div>
           )}
 
-          <StarRating rating={product.rating} showCount className="mb-3" />
+          <StarRating rating={product.rating} showCount={product.reviews.length > 0} className="mb-3"/>
 
           <div className="d-flex gap-2 align-items-center fs-3 fw-bold mb-4">
             {hasDiscount && (
@@ -82,6 +81,11 @@ function ProductPage() {
           >
             Add to cart
           </button>
+          <div className="mt-3">
+            <Link to="/cart" className="text-body">
+               Go to cart
+            </Link>
+          </div>
         </div>
       </div>
 
