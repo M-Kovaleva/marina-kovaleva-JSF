@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { ChangeEvent, SyntheticEvent } from 'react'
 
 interface ContactFormData {
@@ -80,8 +81,9 @@ function ContactPage() {
   }
 
   return (
-    <div className="container py-5" style={{ maxWidth: '600px' }}>
-      <h1 className="mb-4">Contact Us</h1>
+    <div className="container py-4" style={{ maxWidth: '600px' }}>
+      <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
+      <h1 className="h2 mb-4">Contact us</h1>
 
       {successMessage && (
         <div className="alert alert-success" role="alert">

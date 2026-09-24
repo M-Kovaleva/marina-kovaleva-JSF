@@ -36,7 +36,7 @@ function HomePage() {
   return (
     <div className="container py-4">
       <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
-        <h1 className="mb-0">Catalog</h1>
+         <h1 className="h2 mb-0">Catalog</h1>
         <div className="position-relative">
           <input
             type="text"

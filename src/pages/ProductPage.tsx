@@ -39,7 +39,7 @@ function ProductPage() {
 
   return (
     <div className="container py-4">
-      <Link to="/" className="d-inline-block mb-4 text-body">&larr; Back to catalog</Link>
+      <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
 
       <div className="row g-4">
         <div className="col-12 col-md-6">

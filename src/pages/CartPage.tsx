@@ -23,7 +23,8 @@ function CartPage() {
 
   return (
     <div className="container py-4">
-      <h1 className="h2 mb-4">Your Cart</h1>
+      <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
+      <h1 className="h2 mb-4">Your cart</h1>
 
       <div className="row g-4">
         <div className="col-12 col-lg-8">
@@ -40,7 +41,7 @@ function CartPage() {
               />
 
               <div className="flex-grow-1" style={{ minWidth: 120 }}>
-                <div className="fw-bold">{item.product.title}</div>
+                <h3 className="h4 mb-3">{item.product.title}</h3>
                 <div className="text-body-secondary">
                   ${item.product.discountedPrice.toFixed(2)}
                 </div>
@@ -74,11 +75,11 @@ function CartPage() {
 
                 <button
                   type="button"
-                  className="btn btn-link text-danger"
+                  className="btn-close-custom text-danger"
                   onClick={() => removeFromCart(item.product.id)}
                   aria-label={`Remove ${item.product.title} from cart`}
                 >
-                  <i className="bi bi-trash"></i>
+                  <i className="bi bi-trash nav-icon"></i>
                 </button>
               </div>
             </div>
