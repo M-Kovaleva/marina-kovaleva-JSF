@@ -40,7 +40,7 @@ function HomePage() {
         <div className="position-relative">
           <input
             type="text"
-            className="form-control search-input"
+            className="form-control border-accent"
             placeholder="Search products..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}

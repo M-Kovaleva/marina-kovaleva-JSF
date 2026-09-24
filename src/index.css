@@ -141,7 +141,6 @@ footer a.text-white:hover {
   color: var(--bs-body-color);
 }
 
-
-.search-input {
-  border-color: var(--accent-gold);
+.border-accent {
+  --bs-border-color: var(--accent-gold);
 }

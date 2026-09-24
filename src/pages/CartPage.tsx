@@ -8,12 +8,13 @@ function CartPage() {
     (sum, item) => sum + item.product.discountedPrice * item.quantity,
     0
   )
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
 
   if (items.length === 0) {
     return (
       <div className="container py-5 text-center">
         <h1 className="h2 mb-3">Your cart is empty</h1>
-        <Link to="/" className="btn btn-primary">
+        <Link to="/" className="btn btn-primary btn-lg">
           Continue shopping
         </Link>
       </div>
@@ -29,7 +30,7 @@ function CartPage() {
           {items.map((item) => (
             <div
               key={item.product.id}
-              className="d-flex flex-wrap align-items-center gap-3 border-bottom pb-3 mb-3"
+              className="d-flex flex-wrap align-items-center gap-3 border-bottom border-accent pb-3 mb-3"
             >
               <img
                 src={item.product.image.url}
@@ -85,7 +86,8 @@ function CartPage() {
         </div>
 
         <div className="col-12 col-lg-4">
-          <div className="bg-body rounded-4 p-4">
+          <div className="bg-body rounded-4 p-4 border border-accent">
+            <div className="mb-3">Items: {itemCount}</div>
             <div className="d-flex justify-content-between fs-4 fw-bold mb-4">
               <span>Total</span>
               <span>${total.toFixed(2)}</span>

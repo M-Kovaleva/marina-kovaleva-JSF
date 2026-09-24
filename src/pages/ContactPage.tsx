@@ -98,7 +98,7 @@ function ContactPage() {
             type="text"
             id="fullName"
             name="fullName"
-            className={`form-control ${errors.fullName ? 'is-invalid' : ''}`}
+            className={`form-control border-accent ${errors.fullName ? 'is-invalid' : ''}`}
             value={formData.fullName}
             onChange={handleChange}
             aria-invalid={!!errors.fullName}
@@ -119,7 +119,7 @@ function ContactPage() {
             type="text"
             id="subject"
             name="subject"
-            className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
+            className={`form-control border-accent ${errors.subject ? 'is-invalid' : ''}`}
             value={formData.subject}
             onChange={handleChange}
             aria-invalid={!!errors.subject}
@@ -140,7 +140,7 @@ function ContactPage() {
             type="email"
             id="email"
             name="email"
-            className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+            className={`form-control border-accent ${errors.email ? 'is-invalid' : ''}`}
             value={formData.email}
             onChange={handleChange}
             aria-invalid={!!errors.email}
@@ -161,7 +161,7 @@ function ContactPage() {
             id="message"
             name="message"
             rows={5}
-            className={`form-control ${errors.message ? 'is-invalid' : ''}`}
+            className={`form-control border-accent ${errors.message ? 'is-invalid' : ''}`}
             value={formData.message}
             onChange={handleChange}
             aria-invalid={!!errors.message}
