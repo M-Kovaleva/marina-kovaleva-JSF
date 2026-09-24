@@ -33,8 +33,8 @@ h1, h2, h3, h4 {
   --bs-btn-color: var(--bs-body-color);
   --bs-btn-bg: var(--bs-tertiary-bg);
   --bs-btn-border-color: var(--accent-gold);
-  --bs-btn-hover-color: var(--bs-body-color);
-  --bs-btn-hover-bg: #e8dcc8;
+  --bs-btn-hover-color: var(--bs-body-bg);
+  --bs-btn-hover-bg: var(--accent-gold);
   --bs-btn-hover-border-color: var(--accent-gold);
   --bs-btn-active-color: var(--bs-body-color);
   --bs-btn-active-bg: #e0d3ba;
@@ -139,4 +139,20 @@ footer a.text-white:hover {
 .product-tags {
   background-color: var(--bs-tertiary-bg);
   color: var(--bs-body-color);
+}
+
+.pagination {
+  --bs-pagination-border-radius: 2rem;
+  --bs-pagination-color: var(--bs-body-color);
+  --bs-pagination-bg: var(--bs-tertiary-bg);
+  --bs-pagination-border-color: var(--accent-gold);
+  --bs-pagination-hover-color: var(--bs-body-bg);
+  --bs-pagination-hover-bg: var(--accent-gold);
+  --bs-pagination-hover-border-color: var(--accent-gold);
+  --bs-pagination-active-color: var(--bs-body-bg);
+  --bs-pagination-active-bg: var(--accent-gold);
+  --bs-pagination-active-border-color: var(--accent-gold);
+  --bs-pagination-disabled-color: var(--bs-secondary-color);
+  --bs-pagination-disabled-bg: var(--bs-tertiary-bg);
+  --bs-pagination-disabled-border-color: var(--accent-gold);
 }
