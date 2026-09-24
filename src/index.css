@@ -140,3 +140,8 @@ footer a.text-white:hover {
   background-color: var(--bs-tertiary-bg);
   color: var(--bs-body-color);
 }
+
+
+.search-input {
+  border-color: var(--accent-gold);
+}

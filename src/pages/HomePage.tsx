@@ -37,18 +37,25 @@ function HomePage() {
     <div className="container py-4">
       <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
         <h1 className="mb-0">Catalog</h1>
-        <form className="d-flex gap-2" onSubmit={(e) => e.preventDefault()}>
+        <div className="position-relative">
           <input
             type="text"
-            className="form-control"
+            className="form-control search-input"
             placeholder="Search products..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button type="submit" className="btn btn-secondary text-nowrap">
-            Search
-          </button>
-        </form>
+          {search && (
+            <button
+              type="button"
+              className="btn-close-custom position-absolute top-50 end-0 translate-middle-y me-2"
+              onClick={() => setSearch('')}
+              aria-label="Clear search"
+            >
+              ×
+            </button>
+          )}
+        </div>
       </div>
 
       {filteredProducts.length === 0 ? (
