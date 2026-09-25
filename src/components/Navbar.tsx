@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Offcanvas } from 'bootstrap'
 import logo from '../assets/logo-gold.png'
@@ -9,9 +10,6 @@ function closeMobileMenu() {
   if (el) {
     Offcanvas.getOrCreateInstance(el).hide()
   }
-  document.querySelectorAll('.offcanvas-backdrop').forEach((backdrop) => backdrop.remove())
-  document.body.style.removeProperty('overflow')
-  document.body.style.removeProperty('padding-right')
 }
 
 function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
@@ -43,10 +41,24 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
 }
 
 function Navbar() {
+  useEffect(() => {
+    const el = document.getElementById('mobileMenu')
+    if (!el) return
+
+    function handleHidden() {
+      document.querySelectorAll('.offcanvas-backdrop').forEach((backdrop) => backdrop.remove())
+      document.body.style.removeProperty('overflow')
+      document.body.style.removeProperty('padding-right')
+    }
+
+    el.addEventListener('hidden.bs.offcanvas', handleHidden)
+    return () => el.removeEventListener('hidden.bs.offcanvas', handleHidden)
+  }, [])
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'var(--bs-body-color)' }}>
-        <div className="container-fluid px-4 py-0">
+        <div className="container-fluid py-0">
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="MODO" />
           </Link>

@@ -61,6 +61,11 @@ header .navbar-nav {
   --bs-navbar-active-color: var(--accent-gold);
 }
 
+.container,
+.container-fluid {
+  --bs-gutter-x: 3rem;
+}
+
 .toast {
   background-color: var(--bs-tertiary-bg);
   color: var(--bs-body-color);
@@ -85,8 +90,8 @@ header .navbar-nav {
 }
 
 .cart-badge {
-  background-color: var(--accent-gold);
-  color: var(--bs-body-color);
+  background-color: #a1332a;
+  color: var(--bs-body-bg);
 }
 
 .product-card {
@@ -119,8 +124,8 @@ header .navbar-nav {
 }
 
 .discount-badge {
-  background-color: var(--accent-gold);
-  color: var(--bs-body-color);
+  background-color: #a1332a;
+  color: var(--bs-body-bg);
 }
 
 footer .nav-link {
@@ -144,4 +149,3 @@ footer a.text-white:hover {
 .border-accent {
   --bs-border-color: var(--accent-gold);
 }
-
