@@ -27,9 +27,9 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
       <li className="nav-item">
         <Link to="/cart" className="nav-link" onClick={onLinkClick}>
           <span className="position-relative d-inline-block">
-            <i className="bi bi-cart nav-icon"></i>
+            <i className="bi bi-cart nav-icon fs-5"></i>
             {itemCount > 0 && (
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge">
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-accent">
                 {itemCount}
               </span>
             )}
@@ -71,7 +71,7 @@ function Navbar() {
             aria-controls="mobileMenu"
             aria-label="Toggle navigation"
           >
-            <i className="bi bi-list nav-icon"></i>
+            <i className="bi bi-list nav-icon fs-5"></i>
           </button>
 
           <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-4 d-none d-lg-flex">
@@ -86,7 +86,7 @@ function Navbar() {
             <img src={logoBlack} alt="MODO" />
           </Link>
           <button type="button" className="btn-close-custom ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
-            <i className="bi bi-x-lg nav-icon"></i>
+            <i className="bi bi-x-lg nav-icon fs-5"></i>
           </button>
         </div>
         <div className="offcanvas-body px-4">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Product } from '../types/product'
 import StarRating from './StarRating'
+import PriceTag from './PriceTag'
 
 interface ProductCardProps {
   product: Product
@@ -16,13 +17,15 @@ function ProductCard({ product }: ProductCardProps) {
     <Link to={`/product/${product.id}`} className="text-decoration-none text-body">
       <div className="product-card h-100 bg-body rounded-4 p-3">
         <div className="position-relative">
-          <img
-            src={product.image.url}
-            alt={product.image.alt}
-            className="product-card-image w-100 d-block rounded-4"
-          />
+          <div className="ratio ratio-1x1 rounded-4 overflow-hidden">
+            <img
+              src={product.image.url}
+              alt={product.image.alt}
+              className="object-fit-cover"
+            />
+          </div>
           {hasDiscount && (
-            <span className="badge rounded-pill discount-badge fw-bold position-absolute top-0 end-0 m-2">
+            <span className="badge rounded-pill badge-accent fw-bold position-absolute top-0 end-0 m-2">
               -{discountPercent}%
             </span>
           )}
@@ -33,14 +36,7 @@ function ProductCard({ product }: ProductCardProps) {
         <div className="text-center pt-3">
           <h3 className="h5 mb-2 fw-semibold">{product.title}</h3>
           <StarRating rating={product.rating} className="mb-2" />
-          <div className="d-flex gap-2 justify-content-center fw-bold">
-            {hasDiscount && (
-              <span className="text-decoration-line-through text-body-secondary">
-                ${product.price.toFixed(2)}
-              </span>
-            )}
-            <span className="text-body">${product.discountedPrice.toFixed(2)}</span>
-          </div>
+          <PriceTag product={product} size="sm" />
         </div>
       </div>
     </Link>

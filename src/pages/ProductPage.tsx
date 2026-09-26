@@ -4,6 +4,7 @@ import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
 import { useCart } from '../context/CartContext'
 import StarRating from '../components/StarRating'
+import PriceTag from '../components/PriceTag'
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -35,8 +36,6 @@ function ProductPage() {
   if (error) return <p className="p-4 text-danger">Error: {error}</p>
   if (!product) return null
 
-  const hasDiscount = product.discountedPrice < product.price
-
   return (
     <div className="container py-4">
       <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
@@ -63,13 +62,8 @@ function ProductPage() {
 
           <StarRating rating={product.rating} showCount={product.reviews.length > 0} className="mb-3"/>
 
-          <div className="d-flex gap-2 align-items-center fs-3 fw-bold mb-4">
-            {hasDiscount && (
-              <span className="text-decoration-line-through text-body-secondary fs-5">
-                ${product.price.toFixed(2)}
-              </span>
-            )}
-            <span className="text-body">${product.discountedPrice.toFixed(2)}</span>
+          <div className="mb-4">
+            <PriceTag product={product} size="lg" align="start" />
           </div>
 
           <p className="mb-4">{product.description}</p>
