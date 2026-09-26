@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
 import { useCart } from '../hooks/useCart'
@@ -16,9 +16,9 @@ function ProductPage() {
   const { addToCart } = useCart()
 
   const fetchProduct = useCallback(() => {
-  if (!id) throw new Error('Product id is missing')
-  return getProductById(id)
-}, [id])
+    if (!id) throw new Error('Product id is missing')
+    return getProductById(id)
+  }, [id])
   const { data: product, loading, error } = useFetch<Product>(fetchProduct)
 
   if (loading) return <Loader message="Loading product..." />
@@ -49,7 +49,11 @@ function ProductPage() {
             </div>
           )}
 
-          <StarRating rating={product.rating} showCount={product.reviews.length > 0} className="mb-3"/>
+          <StarRating
+            rating={product.rating}
+            showCount={product.reviews.length > 0}
+            className="mb-3"
+          />
 
           <div className="mb-4">
             <PriceTag product={product} size="lg" align="start" />
@@ -57,9 +61,7 @@ function ProductPage() {
 
           <p className="mb-4">{product.description}</p>
 
-          <CtaButton onClick={() => addToCart(product)}>
-            Add to cart
-          </CtaButton>
+          <CtaButton onClick={() => addToCart(product)}>Add to cart</CtaButton>
 
           <div className="mt-3">
             <BackLink to="/cart" className="text-body">

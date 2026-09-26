@@ -22,9 +22,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const existing = prev.find((item) => item.product.id === product.id)
       if (existing) {
         return prev.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+          item.product.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         )
       }
       return [...prev, { product, quantity: 1 }]
@@ -42,9 +40,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   function updateQuantity(productId: string, quantity: number) {
     setItems((prev) =>
-      prev.map((item) =>
-        item.product.id === productId ? { ...item, quantity } : item
-      )
+      prev.map((item) => (item.product.id === productId ? { ...item, quantity } : item))
     )
   }
 
@@ -58,7 +54,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   return (
     <CartContext.Provider
-      value={{ items, toastMessage, addToCart, removeFromCart, updateQuantity, clearCart, clearToast }}
+      value={{
+        items,
+        toastMessage,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        clearToast,
+      }}
     >
       {children}
     </CartContext.Provider>

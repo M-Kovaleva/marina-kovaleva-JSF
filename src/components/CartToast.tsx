@@ -17,10 +17,7 @@ function CartToast() {
   }, [toastMessage])
 
   return (
-    <div
-        className="toast-container position-fixed end-0 p-3"
-        style={{ zIndex: 1080, top: '40px' }}
-    >
+    <div className="toast-container position-fixed end-0 p-3" style={{ zIndex: 1080, top: '40px' }}>
       <div
         ref={toastRef}
         className="toast align-items-center border-0 "

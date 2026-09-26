@@ -15,7 +15,9 @@ function PriceTag({ product, size = 'sm', align = 'center' }: PriceTagProps) {
   return (
     <div className={`d-flex gap-2 align-items-center fw-bold ${justify} ${wrapperClass}`.trim()}>
       {hasDiscount && (
-        <span className={`text-decoration-line-through text-body-secondary ${oldPriceClass}`.trim()}>
+        <span
+          className={`text-decoration-line-through text-body-secondary ${oldPriceClass}`.trim()}
+        >
           ${product.price.toFixed(2)}
         </span>
       )}

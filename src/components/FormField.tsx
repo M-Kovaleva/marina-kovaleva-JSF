@@ -10,7 +10,15 @@ interface FormFieldProps {
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
 
-function FormField({ label, name, type = 'text', value, error, rows = 5, onChange }: FormFieldProps) {
+function FormField({
+  label,
+  name,
+  type = 'text',
+  value,
+  error,
+  rows = 5,
+  onChange,
+}: FormFieldProps) {
   const controlClass = `form-control border-accent ${error ? 'is-invalid' : ''}`.trim()
   const errorId = `${name}Error`
 

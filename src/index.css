@@ -1,20 +1,23 @@
-@import url("bootstrap-icons/font/bootstrap-icons.css");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap");
-@import "bootstrap/dist/css/bootstrap.min.css";
+@import url('bootstrap-icons/font/bootstrap-icons.css');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-  --bs-body-font-family: "Inter", Helvetica, sans-serif;
-  --bs-body-bg: #f8f6f2;              /* color-background */
-  --bs-body-color: #1c1c1c;           /* color-primary */
-  --bs-secondary-color: #6f6f6f;      /* color-secondary-text */
-  --bs-tertiary-bg: #f1e9dd;          /* color-secondary */
-  --accent-gold: #c6a664;             
+  --bs-body-font-family: 'Inter', Helvetica, sans-serif;
+  --bs-body-bg: #f8f6f2; /* color-background */
+  --bs-body-color: #1c1c1c; /* color-primary */
+  --bs-secondary-color: #6f6f6f; /* color-secondary-text */
+  --bs-tertiary-bg: #f1e9dd; /* color-secondary */
+  --accent-gold: #c6a664;
   --accent-red: #a1332a;
-  --heading-font: "Playfair Display", Arial, sans-serif;
+  --heading-font: 'Playfair Display', Arial, sans-serif;
   --shadow-accent: 0 8px 20px var(--accent-gold);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--heading-font);
 }
 
@@ -102,7 +105,9 @@ header .navbar-nav {
 }
 
 .product-card {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .product-card:hover {
@@ -124,16 +129,14 @@ header .navbar-nav {
   color: var(--accent-gold);
 }
 
-
 footer .nav-link {
   font-weight: 500;
   transition: color 0.2s;
 }
 footer .nav-link:hover,
 footer a.text-white:hover {
-   color: var(--accent-gold) !important;
- }
-
+  color: var(--accent-gold) !important;
+}
 
 .border-accent {
   --bs-border-color: var(--accent-gold);

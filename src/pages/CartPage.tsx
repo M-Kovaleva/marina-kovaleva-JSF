@@ -5,19 +5,14 @@ import BackLink from '../components/BackLink'
 function CartPage() {
   const { items, removeFromCart, updateQuantity } = useCart()
 
-  const total = items.reduce(
-    (sum, item) => sum + item.product.discountedPrice * item.quantity,
-    0
-  )
+  const total = items.reduce((sum, item) => sum + item.product.discountedPrice * item.quantity, 0)
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
 
   if (items.length === 0) {
     return (
       <div className="container py-5 text-center">
         <h1 className="h2 mb-3">Your cart is empty</h1>
-        <CtaButton to="/">
-          Continue shopping
-        </CtaButton>
+        <CtaButton to="/">Continue shopping</CtaButton>
       </div>
     )
   }
@@ -53,9 +48,7 @@ function CartPage() {
                   <button
                     type="button"
                     className="btn btn-sm btn-secondary"
-                    onClick={() =>
-                      updateQuantity(item.product.id, Math.max(1, item.quantity - 1))
-                    }
+                    onClick={() => updateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
                     disabled={item.quantity <= 1}
                   >
                     −

@@ -16,9 +16,7 @@ function SuccessPage() {
       <p className="mb-4">
         Your order has been placed successfully. A confirmation has been sent to you.
       </p>
-      <CtaButton to="/">
-        Back to shopping
-      </CtaButton>
+      <CtaButton to="/">Back to shopping</CtaButton>
     </div>
   )
 }

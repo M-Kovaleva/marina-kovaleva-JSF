@@ -19,10 +19,14 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
   return (
     <>
       <li className="nav-item">
-        <Link to="/" className="nav-link" onClick={onLinkClick}>Home</Link>
+        <Link to="/" className="nav-link" onClick={onLinkClick}>
+          Home
+        </Link>
       </li>
       <li className="nav-item">
-        <Link to="/contact" className="nav-link" onClick={onLinkClick}>Contact us</Link>
+        <Link to="/contact" className="nav-link" onClick={onLinkClick}>
+          Contact us
+        </Link>
       </li>
       <li className="nav-item">
         <Link to="/cart" className="nav-link" onClick={onLinkClick}>
@@ -57,7 +61,10 @@ function Navbar() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'var(--bs-body-color)' }}>
+      <nav
+        className="navbar navbar-expand-lg navbar-dark"
+        style={{ backgroundColor: 'var(--bs-body-color)' }}
+      >
         <div className="container-fluid py-0">
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="MODO" />
@@ -80,12 +87,22 @@ function Navbar() {
         </div>
       </nav>
 
-      <div className="offcanvas offcanvas-start" tabIndex={-1} id="mobileMenu" aria-labelledby="mobileMenuLabel">
+      <div
+        className="offcanvas offcanvas-start"
+        tabIndex={-1}
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
         <div className="offcanvas-header px-4">
           <Link to="/" className="navbar-brand" id="mobileMenuLabel" onClick={closeMobileMenu}>
             <img src={logoBlack} alt="MODO" />
           </Link>
-          <button type="button" className="btn-close-custom ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <button
+            type="button"
+            className="btn-close-custom ms-auto"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
             <i className="bi bi-x-lg nav-icon fs-5"></i>
           </button>
         </div>
