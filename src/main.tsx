@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './index.css'
 import App from './App.tsx'
-import { CartProvider } from './context/CartContext'
+import { CartProvider } from './context/CartProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

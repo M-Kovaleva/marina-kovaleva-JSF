@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Offcanvas } from 'bootstrap'
 import logo from '../assets/logo-gold.png'
 import logoBlack from '../assets/logo-black.png'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../hooks/useCart'
 
 function closeMobileMenu() {
   const el = document.getElementById('mobileMenu')

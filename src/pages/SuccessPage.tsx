@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../hooks/useCart'
 
 function SuccessPage() {
   const { clearCart } = useCart()

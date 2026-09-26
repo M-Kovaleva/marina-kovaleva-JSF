@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Toast } from 'bootstrap'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../hooks/useCart'
 
 function CartToast() {
   const { toastMessage, clearToast } = useCart()

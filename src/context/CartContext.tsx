@@ -1,9 +1,8 @@
-import { createContext, useContext, useState, useEffect } from 'react'
-import type { ReactNode } from 'react'
+import { createContext } from 'react'
 import type { Product } from '../types/product'
 import type { CartItem } from '../types/cart'
 
-interface CartContextType {
+export interface CartContextType {
   items: CartItem[]
   toastMessage: string | null
   addToCart: (product: Product) => void
@@ -13,73 +12,4 @@ interface CartContextType {
   clearToast: () => void
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined)
-
-const STORAGE_KEY = 'modo-cart'
-
-export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    return saved ? JSON.parse(saved) : []
-  })
-  const [toastMessage, setToastMessage] = useState<string | null>(null)
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-  }, [items])
-
-  function addToCart(product: Product) {
-    setItems((prev) => {
-      const existing = prev.find((item) => item.product.id === product.id)
-      if (existing) {
-        return prev.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      }
-      return [...prev, { product, quantity: 1 }]
-    })
-    setToastMessage(`${product.title} added to cart`)
-  }
-
-  function removeFromCart(productId: string) {
-    const removed = items.find((item) => item.product.id === productId)
-    setItems((prev) => prev.filter((item) => item.product.id !== productId))
-    if (removed) {
-      setToastMessage(`${removed.product.title} removed from cart`)
-    }
-  }
-
-  function updateQuantity(productId: string, quantity: number) {
-    setItems((prev) =>
-      prev.map((item) =>
-        item.product.id === productId ? { ...item, quantity } : item
-      )
-    )
-  }
-
-  function clearCart() {
-    setItems([])
-  }
-
-  function clearToast() {
-    setToastMessage(null)
-  }
-
-  return (
-    <CartContext.Provider
-      value={{ items, toastMessage, addToCart, removeFromCart, updateQuantity, clearCart, clearToast }}
-    >
-      {children}
-    </CartContext.Provider>
-  )
-}
-
-export function useCart() {
-  const context = useContext(CartContext)
-  if (context === undefined) {
-    throw new Error('useCart must be used within a CartProvider')
-  }
-  return context
-}
+export const CartContext = createContext<CartContextType | undefined>(undefined)

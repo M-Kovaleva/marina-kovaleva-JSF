@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../hooks/useCart'
 import StarRating from '../components/StarRating'
 import PriceTag from '../components/PriceTag'
 import Loader from '../components/Loader'
