@@ -50,6 +50,7 @@ function CartPage() {
                     className="btn btn-sm btn-secondary"
                     onClick={() => updateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
                     disabled={item.quantity <= 1}
+                    aria-label="Decrease quantity"
                   >
                     −
                   </button>
@@ -58,6 +59,7 @@ function CartPage() {
                     type="button"
                     className="btn btn-sm btn-secondary"
                     onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                    aria-label="Increase quantity"
                   >
                     +
                   </button>

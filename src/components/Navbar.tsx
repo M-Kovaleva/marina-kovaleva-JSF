@@ -29,7 +29,7 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/cart" className="nav-link" onClick={onLinkClick}>
+        <Link to="/cart" className="nav-link" aria-label="Cart" onClick={onLinkClick}>
           <span className="position-relative d-inline-block">
             <i className="bi bi-cart nav-icon fs-5"></i>
             {itemCount > 0 && (

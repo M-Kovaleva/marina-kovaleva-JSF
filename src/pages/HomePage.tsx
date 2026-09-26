@@ -27,6 +27,7 @@ function HomePage() {
             type="text"
             className="form-control border-accent"
             placeholder="Search products..."
+            aria-label="Search products"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
