@@ -5,6 +5,7 @@ import logo from '../assets/logo-gold.png'
 import logoBlack from '../assets/logo-black.png'
 import { useCart } from '../hooks/useCart'
 
+/** Closes the mobile offcanvas menu programmatically (e.g. after a nav link is clicked) */
 function closeMobileMenu() {
   const el = document.getElementById('mobileMenu')
   if (el) {

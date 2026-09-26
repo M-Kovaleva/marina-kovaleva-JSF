@@ -5,7 +5,15 @@ interface UseFetchResult<T> {
   loading: boolean
   error: string | null
 }
-
+/**
+ * Fetches data from an async function and tracks loading/error state
+ * Cancels the update if the component unmounts or `fetchFn` changes
+ * Before the request finishes, to avoid a "set state on unmounted component" warning
+ *
+ * @typeParam T - The shape of the data being fetched
+ * @param fetchFn - A memoized (useCallback) function that returns a Promise with the data
+ * @returns An object with `data`, `loading` and `error`
+ */
 function useFetch<T>(fetchFn: () => Promise<T>): UseFetchResult<T> {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
