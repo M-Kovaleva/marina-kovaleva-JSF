@@ -1,42 +1,26 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { Product } from '../types/product'
 import { getProducts } from '../services/productService'
 import ProductCard from '../components/ProductCard'
+import Loader from '../components/Loader'
+import ErrorMessage from '../components/ErrorMessage'
+import useFetch from '../hooks/useFetch'
 
 function HomePage() {
-  const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
   const [search, setSearch] = useState('')
+  const { data: products, loading, error } = useFetch<Product[]>(() => getProducts(), [])
 
-  useEffect(() => {
-    async function loadProducts() {
-      try {
-        setLoading(true)
-        setError(null)
-        const data = await getProducts()
-        setProducts(data)
-      } catch (e) {
-        setError(e instanceof Error ? e.message : 'An unknown error occurred')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadProducts()
-  }, [])
-
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = (products ?? []).filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
   )
 
-  if (loading) return <p className="p-4">Loading products...</p>
-  if (error) return <p className="p-4 text-danger">Error: {error}</p>
+  if (loading) return <Loader message="Loading products..." />
+  if (error) return <ErrorMessage message={error} />
 
   return (
     <div className="container py-4">
       <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
-         <h1 className="h2 mb-0">Catalog</h1>
+        <h1 className="h2 mb-0">Catalog</h1>
         <div className="position-relative">
           <input
             type="text"

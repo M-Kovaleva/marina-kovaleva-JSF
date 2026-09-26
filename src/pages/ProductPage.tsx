@@ -1,39 +1,24 @@
-import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
 import { useCart } from '../context/CartContext'
 import StarRating from '../components/StarRating'
 import PriceTag from '../components/PriceTag'
+import Loader from '../components/Loader'
+import ErrorMessage from '../components/ErrorMessage'
+import useFetch from '../hooks/useFetch'
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>()
   const { addToCart } = useCart()
-  const [product, setProduct] = useState<Product | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (!id) return
-
-    async function loadProduct() {
-      try {
-        setLoading(true)
-        setError(null)
-        const data = await getProductById(id!)
-        setProduct(data)
-      } catch (e) {
-        setError(e instanceof Error ? e.message : 'An unknown error occurred')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadProduct()
+  const { data: product, loading, error } = useFetch<Product>(() => {
+    if (!id) throw new Error('Product id is missing')
+    return getProductById(id)
   }, [id])
 
-  if (loading) return <p className="p-4">Loading product...</p>
-  if (error) return <p className="p-4 text-danger">Error: {error}</p>
+  if (loading) return <Loader message="Loading product..." />
+  if (error) return <ErrorMessage message={error} />
   if (!product) return null
 
   return (
@@ -55,7 +40,7 @@ function ProductPage() {
           {product.tags.length > 0 && (
             <div className="mb-3">
               <span className="product-tags d-inline-block rounded-2 px-2 py-1">
-                {product.tags.join(',')}
+                {product.tags.join(', ')}
               </span>
             </div>
           )}
