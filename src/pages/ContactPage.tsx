@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { ChangeEvent, SyntheticEvent } from 'react'
+import FormField from '../components/FormField'
 
 interface ContactFormData {
   fullName: string
@@ -30,9 +31,7 @@ function ContactPage() {
   const [errors, setErrors] = useState<ContactFormErrors>({})
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
 
-  function handleChange(
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -92,89 +91,39 @@ function ContactPage() {
       )}
 
       <form noValidate onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="fullName" className="form-label">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            className={`form-control border-accent ${errors.fullName ? 'is-invalid' : ''}`}
-            value={formData.fullName}
-            onChange={handleChange}
-            aria-invalid={!!errors.fullName}
-            aria-describedby="fullNameError"
-          />
-          {errors.fullName && (
-            <div id="fullNameError" className="invalid-feedback" role="alert">
-              {errors.fullName}
-            </div>
-          )}
-        </div>
+        <FormField
+          label="Full Name"
+          name="fullName"
+          value={formData.fullName}
+          error={errors.fullName}
+          onChange={handleChange}
+        />
 
-        <div className="mb-3">
-          <label htmlFor="subject" className="form-label">
-            Subject
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            className={`form-control border-accent ${errors.subject ? 'is-invalid' : ''}`}
-            value={formData.subject}
-            onChange={handleChange}
-            aria-invalid={!!errors.subject}
-            aria-describedby="subjectError"
-          />
-          {errors.subject && (
-            <div id="subjectError" className="invalid-feedback" role="alert">
-              {errors.subject}
-            </div>
-          )}
-        </div>
+        <FormField
+          label="Subject"
+          name="subject"
+          value={formData.subject}
+          error={errors.subject}
+          onChange={handleChange}
+        />
 
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className={`form-control border-accent ${errors.email ? 'is-invalid' : ''}`}
-            value={formData.email}
-            onChange={handleChange}
-            aria-invalid={!!errors.email}
-            aria-describedby="emailError"
-          />
-          {errors.email && (
-            <div id="emailError" className="invalid-feedback" role="alert">
-              {errors.email}
-            </div>
-          )}
-        </div>
+        <FormField
+          label="Email"
+          name="email"
+          type="email"
+          value={formData.email}
+          error={errors.email}
+          onChange={handleChange}
+        />
 
-        <div className="mb-3">
-          <label htmlFor="message" className="form-label">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            className={`form-control border-accent ${errors.message ? 'is-invalid' : ''}`}
-            value={formData.message}
-            onChange={handleChange}
-            aria-invalid={!!errors.message}
-            aria-describedby="messageError"
-          />
-          {errors.message && (
-            <div id="messageError" className="invalid-feedback" role="alert">
-              {errors.message}
-            </div>
-          )}
-        </div>
+        <FormField
+          label="Message"
+          name="message"
+          type="textarea"
+          value={formData.message}
+          error={errors.message}
+          onChange={handleChange}
+        />
 
         <button type="submit" className="btn btn-primary btn-lg w-100">
           Send Message
