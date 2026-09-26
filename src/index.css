@@ -1,19 +1,22 @@
+/* Imports */
 @import url('bootstrap-icons/font/bootstrap-icons.css');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap');
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* Theme variables */
 :root {
   --bs-body-font-family: 'Inter', Helvetica, sans-serif;
   --bs-body-bg: #f8f6f2; /* color-background */
   --bs-body-color: #1c1c1c; /* color-primary */
   --bs-secondary-color: #6f6f6f; /* color-secondary-text */
   --bs-tertiary-bg: #f1e9dd; /* color-secondary */
-  --accent-gold: #c6a664;
-  --accent-red: #a1332a;
-  --heading-font: 'Playfair Display', Arial, sans-serif;
-  --shadow-accent: 0 8px 20px var(--accent-gold);
+  --accent-gold: #c6a664; /* color-accent */
+  --accent-red: #a1332a; /* color-cta */
+  --heading-font: 'Playfair Display', Arial, sans-serif; /* headings */
+  --shadow-accent: 0 8px 20px var(--accent-gold); /* hover/active glow */
 }
 
+/* Typography */
 h1,
 h2,
 h3,
@@ -21,6 +24,7 @@ h4 {
   font-family: var(--heading-font);
 }
 
+/* Buttons */
 .btn-primary {
   --bs-btn-color: var(--bs-body-bg);
   --bs-btn-bg: var(--accent-red);
@@ -45,6 +49,7 @@ h4 {
   --bs-btn-active-border-color: var(--accent-gold);
 }
 
+/* Navbar */
 header {
   --bs-nav-link-font-size: 18px;
 }
@@ -67,21 +72,6 @@ header .navbar-nav {
   --bs-navbar-color: var(--bs-body-color);
 }
 
-.container,
-.container-fluid {
-  --bs-gutter-x: 3rem;
-}
-
-.toast,
-.product-tags {
-  background-color: var(--bs-tertiary-bg);
-  color: var(--bs-body-color);
-}
-
-.toast {
-  box-shadow: var(--shadow-accent);
-}
-
 .navbar-brand img {
   height: 50px;
   width: auto;
@@ -99,11 +89,32 @@ header .navbar-nav {
   color: var(--bs-body-color);
 }
 
-.badge-accent {
+/* Layout */
+.container,
+.container-fluid {
+  --bs-gutter-x: 3rem;
+}
+
+/* Toast */
+.toast {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  box-shadow: var(--shadow-accent);
+}
+
+/* Product tags */
+.product-tags {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+}
+
+/* Badges */
+.badge-cta {
   background-color: var(--accent-red);
   color: var(--bs-body-bg);
 }
 
+/* Product card */
 .product-card {
   transition:
     transform 0.3s,
@@ -129,15 +140,18 @@ header .navbar-nav {
   color: var(--accent-gold);
 }
 
-footer .nav-link {
+/* Footer */
+.footer-link {
+  color: var(--bs-body-bg);
   font-weight: 500;
   transition: color 0.2s;
 }
-footer .nav-link:hover,
-footer a.text-white:hover {
-  color: var(--accent-gold) !important;
+
+.footer-link:hover {
+  color: var(--accent-gold);
 }
 
+/* Utilities */
 .border-accent {
   --bs-border-color: var(--accent-gold);
 }

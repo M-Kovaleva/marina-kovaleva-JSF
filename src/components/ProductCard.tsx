@@ -21,7 +21,7 @@ function ProductCard({ product }: ProductCardProps) {
             <img src={product.image.url} alt={product.image.alt} className="object-fit-cover" />
           </div>
           {hasDiscount && (
-            <span className="badge rounded-pill badge-accent fw-bold position-absolute top-0 end-0 m-2">
+            <span className="badge rounded-pill badge-cta fw-bold position-absolute top-0 end-0 m-2">
               -{discountPercent}%
             </span>
           )}

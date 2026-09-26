@@ -11,12 +11,12 @@ function Footer() {
         <nav className="order-1 order-md-2">
           <ul className="nav flex-column flex-md-row gap-2 gap-md-4">
             <li className="nav-item">
-              <Link to="/" className="nav-link text-white p-0">
+              <Link to="/" className="nav-link footer-link p-0">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link text-white p-0">
+              <Link to="/contact" className="nav-link footer-link p-0">
                 Contact us
               </Link>
             </li>
@@ -24,10 +24,10 @@ function Footer() {
         </nav>
 
         <div className="d-flex gap-3 order-2 order-md-3">
-          <a href="https://www.facebook.com/" className="text-white" aria-label="Facebook">
+          <a href="https://www.facebook.com/" className="footer-link" aria-label="Facebook">
             <i className="bi bi-facebook fs-5"></i>
           </a>
-          <a href="https://www.instagram.com/" className="text-white" aria-label="Instagram">
+          <a href="https://www.instagram.com/" className="footer-link" aria-label="Instagram">
             <i className="bi bi-instagram fs-5"></i>
           </a>
         </div>

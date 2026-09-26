@@ -33,7 +33,7 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
           <span className="position-relative d-inline-block">
             <i className="bi bi-cart nav-icon fs-5"></i>
             {itemCount > 0 && (
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-accent">
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-cta">
                 {itemCount}
               </span>
             )}
