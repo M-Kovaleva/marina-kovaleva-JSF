@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
 import { useCart } from '../hooks/useCart'
@@ -9,6 +9,7 @@ import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
 import useFetch from '../hooks/useFetch'
 import CtaButton from '../components/CtaButton'
+import BackLink from '../components/BackLink'
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -26,7 +27,7 @@ function ProductPage() {
 
   return (
     <div className="container py-4">
-      <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
+      <BackLink to="/">Catalog</BackLink>
 
       <div className="row g-4">
         <div className="col-12 col-md-6">
@@ -61,9 +62,9 @@ function ProductPage() {
           </CtaButton>
 
           <div className="mt-3">
-            <Link to="/cart" className="text-body">
-               Go to cart
-            </Link>
+            <BackLink to="/cart" className="text-body">
+              Go to cart
+            </BackLink>
           </div>
         </div>
       </div>

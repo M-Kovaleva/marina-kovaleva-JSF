@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { useCart } from '../hooks/useCart'
 import CtaButton from '../components/CtaButton'
+import BackLink from '../components/BackLink'
 
 function CartPage() {
   const { items, removeFromCart, updateQuantity } = useCart()
@@ -24,7 +24,7 @@ function CartPage() {
 
   return (
     <div className="container py-4">
-      <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
+      <BackLink to="/">Catalog</BackLink>
       <h1 className="h2 mb-4">Your cart</h1>
 
       <div className="row g-4">

@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import type { ChangeEvent, SyntheticEvent } from 'react'
 import FormField from '../components/FormField'
 import CtaButton from '../components/CtaButton'
+import BackLink from '../components/BackLink'
 
 interface ContactFormData {
   fullName: string
@@ -82,7 +82,7 @@ function ContactPage() {
 
   return (
     <div className="container py-4" style={{ maxWidth: '600px' }}>
-      <Link to="/" className="d-inline-block mb-4 text-body">Catalog</Link>
+      <BackLink to="/">Catalog</BackLink>
       <h1 className="h2 mb-4">Contact us</h1>
 
       {successMessage && (
