@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { ChangeEvent, SyntheticEvent } from 'react'
 import FormField from '../components/FormField'
+import CtaButton from '../components/CtaButton'
 
 interface ContactFormData {
   fullName: string
@@ -125,9 +126,9 @@ function ContactPage() {
           onChange={handleChange}
         />
 
-        <button type="submit" className="btn btn-primary btn-lg w-100">
+        <CtaButton type="submit" fullWidth>
           Send Message
-        </button>
+        </CtaButton>
       </form>
     </div>
   )

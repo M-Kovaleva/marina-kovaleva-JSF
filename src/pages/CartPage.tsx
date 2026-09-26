@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../hooks/useCart'
+import CtaButton from '../components/CtaButton'
 
 function CartPage() {
   const { items, removeFromCart, updateQuantity } = useCart()
@@ -14,9 +15,9 @@ function CartPage() {
     return (
       <div className="container py-5 text-center">
         <h1 className="h2 mb-3">Your cart is empty</h1>
-        <Link to="/" className="btn btn-primary btn-lg">
+        <CtaButton to="/">
           Continue shopping
-        </Link>
+        </CtaButton>
       </div>
     )
   }
@@ -93,9 +94,9 @@ function CartPage() {
               <span>Total</span>
               <span>${total.toFixed(2)}</span>
             </div>
-            <Link to="/success" className="btn btn-primary w-100 btn-lg">
+            <CtaButton to="/success" fullWidth>
               Checkout
-            </Link>
+            </CtaButton>
           </div>
         </div>
       </div>

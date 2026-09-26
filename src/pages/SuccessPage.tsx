@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../hooks/useCart'
+import CtaButton from '../components/CtaButton'
 
 function SuccessPage() {
   const { clearCart } = useCart()
@@ -16,9 +17,9 @@ function SuccessPage() {
       <p className="mb-4">
         Your order has been placed successfully. A confirmation has been sent to you.
       </p>
-      <Link to="/" className="btn btn-primary btn-lg">
+      <CtaButton to="/">
         Back to shopping
-      </Link>
+      </CtaButton>
     </div>
   )
 }

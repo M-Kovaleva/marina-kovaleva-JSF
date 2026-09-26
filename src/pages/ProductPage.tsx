@@ -8,6 +8,7 @@ import PriceTag from '../components/PriceTag'
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
 import useFetch from '../hooks/useFetch'
+import CtaButton from '../components/CtaButton'
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -55,13 +56,10 @@ function ProductPage() {
 
           <p className="mb-4">{product.description}</p>
 
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            onClick={() => addToCart(product)}
-          >
+          <CtaButton onClick={() => addToCart(product)}>
             Add to cart
-          </button>
+          </CtaButton>
+
           <div className="mt-3">
             <Link to="/cart" className="text-body">
                Go to cart
