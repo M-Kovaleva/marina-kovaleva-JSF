@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import type { Product } from '../types/product'
 import { getProductById } from '../services/productService'
@@ -12,10 +13,11 @@ function ProductPage() {
   const { id } = useParams<{ id: string }>()
   const { addToCart } = useCart()
 
-  const { data: product, loading, error } = useFetch<Product>(() => {
-    if (!id) throw new Error('Product id is missing')
-    return getProductById(id)
-  }, [id])
+  const fetchProduct = useCallback(() => {
+  if (!id) throw new Error('Product id is missing')
+  return getProductById(id)
+}, [id])
+  const { data: product, loading, error } = useFetch<Product>(fetchProduct)
 
   if (loading) return <Loader message="Loading product..." />
   if (error) return <ErrorMessage message={error} />

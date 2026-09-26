@@ -6,7 +6,7 @@ interface UseFetchResult<T> {
   error: string | null
 }
 
-function useFetch<T>(fetchFn: () => Promise<T>, deps: unknown[]): UseFetchResult<T> {
+function useFetch<T>(fetchFn: () => Promise<T>): UseFetchResult<T> {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -34,7 +34,7 @@ function useFetch<T>(fetchFn: () => Promise<T>, deps: unknown[]): UseFetchResult
     return () => {
       cancelled = true
     }
-  }, deps)
+  }, [fetchFn])
 
   return { data, loading, error }
 }

@@ -7,7 +7,7 @@ function SuccessPage() {
 
   useEffect(() => {
     clearCart()
-  }, [])
+  }, [clearCart])
 
   return (
     <div className="container py-5 text-center">

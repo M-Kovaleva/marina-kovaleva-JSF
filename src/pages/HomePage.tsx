@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import type { Product } from '../types/product'
 import { getProducts } from '../services/productService'
 import ProductCard from '../components/ProductCard'
@@ -8,7 +8,8 @@ import useFetch from '../hooks/useFetch'
 
 function HomePage() {
   const [search, setSearch] = useState('')
-  const { data: products, loading, error } = useFetch<Product[]>(() => getProducts(), [])
+  const fetchProducts = useCallback(() => getProducts(), [])
+  const { data: products, loading, error } = useFetch<Product[]>(fetchProducts)
 
   const filteredProducts = (products ?? []).filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
