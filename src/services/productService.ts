@@ -2,6 +2,7 @@ import type { Product } from '../types/product'
 import type { ApiListResponse, ApiSingleResponse } from '../types/api'
 
 const BASE_URL = 'https://v2.api.noroff.dev/online-shop'
+const TIMEOUT_MS = 10000
 
 /**
  * Fetches the full list of products from the Noroff Online Shop API
@@ -10,7 +11,7 @@ const BASE_URL = 'https://v2.api.noroff.dev/online-shop'
  * @throws If the request fails or the server returns a non-OK response
  */
 export async function getProducts(): Promise<Product[]> {
-  const response = await fetch(BASE_URL)
+  const response = await fetch(BASE_URL, { signal: AbortSignal.timeout(TIMEOUT_MS) })
 
   if (!response.ok) {
     throw new Error('Could not load the product list.')
@@ -28,7 +29,7 @@ export async function getProducts(): Promise<Product[]> {
  * @throws If the request fails, the id doesn't exist, or the server returns a non-OK response
  */
 export async function getProductById(id: string): Promise<Product> {
-  const response = await fetch(`${BASE_URL}/${id}`)
+  const response = await fetch(`${BASE_URL}/${id}`, { signal: AbortSignal.timeout(TIMEOUT_MS) })
 
   if (!response.ok) {
     throw new Error('Could not load the product.')
